@@ -15,7 +15,7 @@ class BookForm extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    this.props.postBook(this.state, this.props.authorID);
+    this.props.postBook(this.state, this.props.authorID, this.props.closeModal);
   };
 
   render() {
@@ -69,8 +69,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    postBook: (book, authorID) =>
-      dispatch(actionCreators.postBook(book, authorID))
+    postBook: (book, authorID, closeModal) =>
+      dispatch(actionCreators.postBook(book, authorID, closeModal))
   };
 };
 

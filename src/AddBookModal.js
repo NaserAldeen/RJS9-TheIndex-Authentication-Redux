@@ -17,7 +17,10 @@ class AddBookModal extends Component {
     return (
       <div>
         <Modal open={open} onClose={this.onCloseModal} center>
-          <BookForm authorID={this.props.authorID} />
+          <BookForm
+            authorID={this.props.authorID}
+            closeModal={this.onCloseModal}
+          />
         </Modal>
         <input type="button" onClick={this.onOpenModal} value="Add New Book!" />
       </div>

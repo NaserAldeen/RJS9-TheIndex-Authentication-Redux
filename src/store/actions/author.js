@@ -27,7 +27,7 @@ export const fetchAuthorDetail = authorID => {
   };
 };
 
-export const postBook = (book, authorID) => {
+export const postBook = (book, authorID, closeModal) => {
   book = {
     ...book,
     authors: [authorID]
@@ -40,6 +40,7 @@ export const postBook = (book, authorID) => {
         type: actionTypes.POST_BOOK,
         payload: newBook
       });
+      closeModal();
     } catch (error) {
       console.error(error.response.data);
     }

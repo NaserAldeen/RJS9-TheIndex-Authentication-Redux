@@ -14,7 +14,7 @@ class AuthorForm extends Component {
 
   submitAuthor = event => {
     event.preventDefault();
-    this.props.postAuthor(this.state);
+    this.props.postAuthor(this.state, this.props.closeModal);
   };
 
   onTextchange = event =>
@@ -68,7 +68,8 @@ class AuthorForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    postAuthor: newAuthor => dispatch(actionCreators.postAuthor(newAuthor))
+    postAuthor: (newAuthor, closeModal) =>
+      dispatch(actionCreators.postAuthor(newAuthor, closeModal))
   };
 };
 

@@ -28,7 +28,7 @@ export const filterAuthors = query => {
   };
 };
 
-export const postAuthor = author => {
+export const postAuthor = (author, closeModal) => {
   return async dispatch => {
     try {
       const res = await instance.post("/api/authors/", author);
@@ -37,6 +37,7 @@ export const postAuthor = author => {
         type: actionTypes.POST_AUTHOR,
         payload: newAuthor
       });
+      closeModal();
     } catch (error) {
       console.error(error.response.data);
     }

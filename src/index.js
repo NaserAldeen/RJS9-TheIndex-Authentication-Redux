@@ -10,7 +10,7 @@ import thunk from "redux-thunk";
 import authorReducer from "./store/reducers/author";
 import authorsReducer from "./store/reducers/authors";
 import authReducer from "./store/reducers/authentication";
-
+import { checkForExpiredToken } from "./store/actions/authentication";
 // Components
 import App from "./App";
 
@@ -26,7 +26,7 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
-
+store.dispatch(checkForExpiredToken());
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
